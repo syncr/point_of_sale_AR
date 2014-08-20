@@ -19,5 +19,8 @@ RSpec.configure do |config|
 end
 
 def setup
-  @test_customer = Customer.new({:name => "Joe Customer"})
+  @test_customer = Customer.new({:name => "Jack Customer"})
+  @test_cashier = Cashier.new({:name => "Jill Cashier"})
+  @test_transaction = Transaction.new({:product_id => 1, :product_quantity => 1, :cashier_id => 1, :customer_id => 1})
+  @test_product = Product.new({:name => "Pampers Ultra", :cost => 29.99})
 end

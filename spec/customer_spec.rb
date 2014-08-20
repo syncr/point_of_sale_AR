@@ -5,7 +5,7 @@ describe Customer do
     setup
   end
 
-  it "exists in the cutomer table" do
+  it "exists in the customer table" do
     @test_customer.save
     expect(Customer.all).to eq [@test_customer]
   end
