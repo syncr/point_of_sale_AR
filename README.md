@@ -12,5 +12,5 @@ Simple POS system which allows for user inputted transactions and provides a set
     Ruby
     ActiveRecord
 
-#### Author: Jeremy Whitaker
+#### Authors: Jeremy Whitaker and Dustin Lewis
 
