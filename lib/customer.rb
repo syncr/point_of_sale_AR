@@ -1,7 +1,4 @@
 class Customer < ActiveRecord::Base
-
-  # def initialize
-
-  # end
-
+  has_many :sales
+  has_many :cashiers, :through => :sales
 end

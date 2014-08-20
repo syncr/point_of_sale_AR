@@ -5,6 +5,8 @@ describe Cashier do
     setup
   end
 
+  it {should have_many :sales}
+
   it 'will store a cashier in the DB' do
     @test_cashier.save
     expect(Cashier.all).to eq [@test_cashier]
