@@ -5,10 +5,8 @@ describe Product do
     setup
   end
 
-  it {should belong_to :sale}
 
-  it "will store a product in the DB" do
-    @test_product.save
-    expect(Product.all).to eq [@test_product]
+  it "will store products in the DB" do
+    expect(Product.all).to eq [@test_product1, @test_product2]
   end
 end

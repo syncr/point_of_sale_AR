@@ -1,5 +1,6 @@
 class Sale < ActiveRecord::Base
-  has_many :product_sales
+  has_many :purchases
+  has_many :products, through: :purchases
   belongs_to :cashier
   belongs_to :customer
 end

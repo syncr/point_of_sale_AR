@@ -14,11 +14,11 @@ describe Sale do
     expect(Sale.all).to eq [@test_sale]
   end
 
-  it 'will create a transaction instance with each method details available' do
-    @test_product_sales.save
-    expect(@test_sale.customer_id).to eq 1
-    expect(@test_sale.cashier_id).to eq 1
-    expect(@test_sale.product_id).to eq 1
-    expect(@test_sale.product_quantity).to eq 1
-  end
+  # it 'will create a transaction instance with each method details available' do
+  #   @test_product_sales1.save
+  #   expect(@test_customer).to eq 1
+  #   expect(@test_sale.cashier_id).to eq 1
+  #   expect(@test_sale.product_id).to eq 1
+  #   expect(@test_sale.product_quantity).to eq 1
+  # end
 end
