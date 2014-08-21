@@ -9,9 +9,12 @@ TRANSACTION << Products, Quantity, Total_Cost
 CUSTOMER << Name
 
 UI/Methods:
-1) Manager add product to POS
-2) Manager create logins
-3) Cashier selects product name from list and then the quantity, stores it in the transaction, at the end returns all products, their prices, and the transaction total to the customer (receipt)
+# 1) Manager add product to POS
+# 2) Manager create logins
+3) Cashier selects product name from list and then the quantity,
+    stores it in the transaction,
+    at the end returns all products, their prices,
+    and the transaction total to the customer (receipt)
 4) Manager >> Method(Sale): total_amount_sold(date_range)
 5) Manager >> Method(Sale): total_transactions(cashier_name)
 6) Customer >> return_products_from_previous_transaction(products)
