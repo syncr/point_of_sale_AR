@@ -28,8 +28,8 @@ end
 
 def manager
   system 'clear'
-  puts "Manager Functions"
-  puts "Select a Function below:"
+  puts "----------Manager Functions----------"
+  puts "\nSelect a Function below:"
   puts "\t1 -- Add Product "
   puts "\t2 -- Create Login"
   puts "\t3 -- Total sold in Date Range  "
@@ -66,8 +66,8 @@ end
 
 def cashier
   system 'clear'
-  puts "Cashier Functions"
-  print "Please Login: "
+  puts "----------Cashier Functions----------"
+  print "\nPlease Login: "
   login = gets.chomp
   @this_cashier = Cashier.find_by login: "#{login}"
   if @this_cashier != nil
@@ -90,7 +90,6 @@ def cashier
 end
 
 def enter_items
-
   p "Enter the item's # to input:"
   item_id = gets.chomp
 
@@ -110,13 +109,20 @@ def enter_items
     enter_items
   when "f"
     puts "Your receipt is as follows:"
-    Purchase.find_each do |purchase|
-      if purchase.id == this_purchase.id
-        product = purchase.product_name
-        cost = purchase.product_cost
-      end
-      puts "#{product} === #{cost}"
+    total_cost = 0.00
+    Purchase.where(sale_id: "#{this_purchase.sale_id}").find_each do |i|
+      item_id = i.product_id
+      item_name = Product.where(id: item_id).first.name
+      item_cost = Product.where(id: item_id).first.cost
+      item_quantity = Purchase.where(id: item_id).first.product_quantity
+
+      puts "Product: #{item_name} \t Cost: #{item_cost} \t Quantity:#{item_quantity}"
+      total_cost += item_cost.to_f * item_quantity.to_f
     end
+    puts "----------------Total Cost: $#{total_cost}----------------"
+    puts "\n\nHit enter to return to the Cashier Menu"
+    gets.chomp
+    cashier
   end
 end
 
