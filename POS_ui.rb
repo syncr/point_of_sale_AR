@@ -46,7 +46,7 @@ def manager
       product_price = gets.chomp
       add_product(product_name, product_price)
       puts "Ok, you've added #{product_name} for $#{product_price}"
-      sleep(2)
+      sleep(3)
     when "2"
       puts "What is the name of the new cashier?"
       cashier_name = gets.chomp
@@ -54,8 +54,15 @@ def manager
       cashier_login = gets.chomp
       add_cashier(cashier_name, cashier_login)
       puts "Ok, you've added #{cashier_name} for #{cashier_login}"
+      sleep(3)
     when "3"
-      method
+      puts "Enter the starting date in the following format (YYYY/MM/DD)?"
+      date_start = gets.chomp
+      puts "Enter the ending date in the following format (YYYY/MM/DD)?"
+      date_emd = gets.chomp
+      result = Purchase.total_sold(date_start, date_end)
+      puts "The total sold from #{date_start} to #{date_end} was $#{result}"
+      sleep(3)
     when "4"
       method
     when "5"
@@ -138,6 +145,8 @@ end
 def add_cashier(cashier_name, cashier_login)
   add_cashier = Cashier.create({:name => "#{cashier_name}", :login => "#{cashier_login}"})
 end
+
+
 
 main_menu
 

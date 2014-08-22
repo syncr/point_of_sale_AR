@@ -6,6 +6,8 @@ describe Cashier do
   end
 
   it {should have_many :sales}
+  it {should have_many(:customers).through(:sales)}
+
 
   it 'will store a cashier in the DB' do
     @test_cashier.save

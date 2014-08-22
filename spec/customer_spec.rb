@@ -6,6 +6,7 @@ describe Customer do
   end
 
   it {should have_many :sales}
+  it {should have_many(:cashiers).through(:sales)}
 
   it "exists in the customer table" do
     @test_customer.save
