@@ -28,6 +28,6 @@ def setup
     @test_customer = Customer.create({:name => "Jack Customer"})
     @test_cashier  = Cashier.create({:name => "Jill Cashier"})
     @test_sale  = Sale.create({ :cashier_id => @test_cashier.id, :customer_id => @test_customer.id})
-    @test_purchase1 = Purchase.create({:product_id => @test_product1.id, :sale_id => @test_sale.id, :product_quantity => 1})
+    @test_purchase1 = Purchase.create({:product_id => @test_product1.id, :sale_id => @test_sale.id, :product_quantity => 2})
     @test_purchase2 = Purchase.create({:product_id => @test_product2.id, :sale_id => @test_sale.id, :product_quantity => 1})
 end

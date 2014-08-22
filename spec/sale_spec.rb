@@ -20,6 +20,6 @@ describe Sale do
     expect(@test_customer.name).to eq 'Jack Customer'
     expect(@test_cashier.name).to eq 'Jill Cashier'
     expect(@test_product1.name).to eq "Pampers Ultra"
-    expect(@test_purchase1.product_quantity).to eq 1
+    expect(@test_purchase1.product_quantity).to eq 2
   end
 end

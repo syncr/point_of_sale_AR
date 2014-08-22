@@ -16,6 +16,7 @@ describe Purchase do
     expect(Purchase.total_sold('2010-01-1', '2015-01-1')).to eq (31.98)
   end
 
-
-
+  it "will tally the sold products by a Cashier" do
+    expect(Cashier.total_sold_by('Jill Cashier')).to eq (61.97)
+  end
 end

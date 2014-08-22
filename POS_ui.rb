@@ -64,9 +64,17 @@ def manager
       puts "The total sold from #{date_start} to #{date_end} was $#{result}"
       sleep(3)
     when "4"
-      method
+      puts "Enter the cashier's name..."
+      cashier_name = gets.chomp
+      result = Cashier.total_sold_by(cashier_name)
+      puts "The total sold by #{cashier_name} to was $#{result}"
+      sleep(3)
     when "5"
-      main_menu
+      puts "Enter the cashier's name..."
+      cashier_name = gets.chomp
+      result = Product.most_popular
+      puts "The the most popular item is #{result}"
+      sleep(3)
   end
   manager
 end
@@ -150,9 +158,6 @@ end
 
 main_menu
 
-# 3) Cashier selects product name from list and then the quantity, stores it in the transaction, at the end returns all products, their prices, and the transaction total to the customer (receipt)
-# 4) Manager >> Method(Sale): total_amount_sold(date_range)
-# 5) Manager >> Method(Sale): total_transactions(cashier_name)
 # 6) Customer >> return_products_from_previous_transaction(products)
 # 7) Method(Product): most_popular_item
 #   > return ordered list of quantity sold
