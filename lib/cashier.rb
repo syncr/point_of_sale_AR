@@ -2,6 +2,8 @@ class Cashier < ActiveRecord::Base
   has_many :sales
   has_many :customers, through: :sales
 
+  validates :name, presence: true
+
 
   def self.total_sold_by(cashier_name)
     total_sold_by = 0

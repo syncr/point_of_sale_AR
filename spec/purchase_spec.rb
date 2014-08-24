@@ -12,6 +12,10 @@ describe Purchase do
     expect(@test_sale.products).to eq [@test_product1, @test_product2]
   end
 
+  it "validates that quantity is a number" do 
+     should validate_numericality_of(:product_quantity)
+  end
+
   it "will tally the told products sold via the POS" do
     expect(Purchase.total_sold('2010-01-1', '2015-01-1')).to eq (31.98)
   end

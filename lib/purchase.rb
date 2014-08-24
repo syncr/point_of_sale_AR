@@ -2,6 +2,7 @@ class Purchase < ActiveRecord::Base
   belongs_to :product
   belongs_to :sale
 
+  validates :product_quantity, numericality: true
 
   def self.total_sold(date_start, date_end)
     #for Purchase.all(date_range), get each Product.cost iteratively add to sum total
