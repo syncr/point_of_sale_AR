@@ -4,4 +4,8 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def most_popular
+    Record.count('name', :distinct => true)
+  end
+
 end

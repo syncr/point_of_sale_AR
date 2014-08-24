@@ -15,4 +15,8 @@ describe Product do
   it "validates that name is present" do 
      should validate_presence_of(:name)
   end
+
+  it "will tell manager the most popular item in the inventory" do
+    expect(Product.most_popular).to eq "Pampers Ultra"
+  end
 end
