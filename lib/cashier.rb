@@ -4,7 +4,6 @@ class Cashier < ActiveRecord::Base
 
   validates :name, presence: true
 
-
   def self.total_sold_by(cashier_name)
     total_sold_by = 0
     cashier = Cashier.where(:name => cashier_name).first
@@ -17,5 +16,6 @@ class Cashier < ActiveRecord::Base
     end
     total_sold_by.round(2)
   end
+
 end
 
