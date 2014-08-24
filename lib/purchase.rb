@@ -15,10 +15,4 @@ class Purchase < ActiveRecord::Base
     end
     total_sold.round(2)
   end
-
-  def most_popular
-
-  # when purchase contains product
-  #   Purchase.distinct.count('name')
-  end
 end

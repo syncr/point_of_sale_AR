@@ -19,8 +19,4 @@ describe Product do
   it "stores the cashier's login in lowercase" do
     expect(@test_product1.name).to eq "PAMPERS ULTRA"
   end
-
-  it "will tell manager the most popular item in the inventory" do
-    expect(Product.most_popular).to eq "PAMPERS ULTRA"
-  end
 end
