@@ -61,7 +61,7 @@ def manager
       puts "Enter the starting date in the following format (YYYY/MM/DD)?"
       date_start = gets.chomp
       puts "Enter the ending date in the following format (YYYY/MM/DD)?"
-      date_emd = gets.chomp
+      date_end = gets.chomp
       result = Purchase.total_sold(date_start, date_end)
       puts "The total sold from #{date_start} to #{date_end} was $#{result}"
       sleep(3)
@@ -74,7 +74,7 @@ def manager
     when "5"
       puts "Enter the cashier's name..."
       cashier_name = gets.chomp
-      result = Product.most_popular
+      result = Product.list_most_popular
       puts "The the most popular item is #{result}"
       sleep(3)
   end
@@ -100,6 +100,10 @@ def cashier
   @this_customer = Customer.create(:name => "#{customer}")
   @this_sale = Sale.create(:cashier_id => "#{@this_cashier.id}", :customer_id => "#{@this_customer.id}")
   puts "Here are the items in the store:"
+
+  # product_list = Product.all
+  # product_list.each do |product|
+
   Product.find_each do |product|
     puts "#{product.id}) #{product.name} === #{product.cost}"
   end
@@ -109,7 +113,6 @@ end
 def enter_items
   p "Enter the item's # to input:"
   item_id = gets.chomp
-
   result = Product.find_by id: "#{item_id}"
   if result != nil
     puts "How many #{result.name} ?"
@@ -127,11 +130,10 @@ def enter_items
   when "f"
     puts "Your receipt is as follows:"
     total_cost = 0.00
-    Purchase.where(sale_id: "#{this_purchase.sale_id}").find_each do |i|
-      item_id = i.product_id
-      item_name = Product.where(id: item_id).first.name
-      item_cost = Product.where(id: item_id).first.cost
-      item_quantity = Purchase.where(id: item_id).first.product_quantity
+    this_purchase.sale.purchases.each do |purchase|
+      item_name = purchase.product.name
+      item_cost = purchase.product.cost
+      item_quantity = purchase.product_quantity
 
       puts "Product: #{item_name} \t Cost: #{item_cost} \t Quantity:#{item_quantity}"
       total_cost += item_cost.to_f * item_quantity.to_f
@@ -143,11 +145,6 @@ def enter_items
   end
 end
 
-def customer
-
-  choice = gets.chomp
-end
-
 def add_product(product_name, product_price, category)
   add_product = Product.create({:name => "#{product_name}", :cost => "#{product_price}", :category => "#{product_price}"})
 end
@@ -156,11 +153,3 @@ def add_cashier(cashier_name, cashier_login)
   add_cashier = Cashier.create({:name => "#{cashier_name}", :login => "#{cashier_login}"})
 end
 main_menu
-
-# 6) Customer >> return_products_from_previous_transaction(products)
-# 7) Method(Product): most_popular_item
-#   > return ordered list of quantity sold
-# 8) Method(Product): least_popular_item
-#   > return ordered list of quantity returned
-
-

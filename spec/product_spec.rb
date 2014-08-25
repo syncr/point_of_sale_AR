@@ -23,4 +23,8 @@ describe Product do
   it "will provide a cashier with all products in a category" do
     expect(Product.find_category("Bathroom").first).to eq @test_product1
   end
+
+  it "will return the most popular product based on sales" do
+    expect(Product.list_most_popular).to eq "PAMPERS ULTRA"
+  end
 end
