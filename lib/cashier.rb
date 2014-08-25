@@ -1,7 +1,6 @@
 class Cashier < ActiveRecord::Base
   has_many :sales
   has_many :customers, through: :sales
-
   validates :name, presence: true
 
   def self.total_sold_by(cashier_name)
@@ -16,6 +15,5 @@ class Cashier < ActiveRecord::Base
     end
     total_sold_by.round(2)
   end
-
 end
 

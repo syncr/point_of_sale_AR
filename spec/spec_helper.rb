@@ -23,8 +23,8 @@ RSpec.configure do |config|
 end
 
 def setup
-    @test_product1 = Product.create({:name => "Pampers Ultra", :cost => 29.99})
-    @test_product2 = Product.create({:name => "Goobers", :cost => 1.99})
+    @test_product1 = Product.create({:name => "Pampers Ultra", :cost => 29.99, :category => "Bathroom"})
+    @test_product2 = Product.create({:name => "Goobers", :cost => 1.99, :category => "Candy"})
     @test_customer = Customer.create({:name => "Jack Customer"})
     @test_cashier  = Cashier.create({:name => "Jill Cashier"})
     @test_sale  = Sale.create({ :cashier_id => @test_cashier.id, :customer_id => @test_customer.id})

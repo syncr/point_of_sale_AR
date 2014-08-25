@@ -8,7 +8,7 @@ describe Cashier do
   it {should have_many :sales}
   it {should have_many(:customers).through(:sales)}
 
-  it "validates that name is present" do 
+  it "validates that name is present" do
      should validate_presence_of(:name)
   end
 

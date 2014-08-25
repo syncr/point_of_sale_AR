@@ -1,7 +1,6 @@
 class Purchase < ActiveRecord::Base
   belongs_to :product
   belongs_to :sale
-
   validates :product_quantity, numericality: true
 
   def self.total_sold(date_start, date_end)

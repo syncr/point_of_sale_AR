@@ -44,7 +44,9 @@ def manager
       product_name = gets.chomp
       puts "What is the price of #{product_name}?"
       product_price = gets.chomp
-      add_product(product_name, product_price)
+      puts "What is the category of #{product_name}?"
+      category = gets.chomp
+      add_product(product_name, product_price, category)
       puts "Ok, you've added #{product_name} for $#{product_price}"
       sleep(3)
     when "2"
@@ -146,16 +148,13 @@ def customer
   choice = gets.chomp
 end
 
-def add_product(product_name, product_price)
-  add_product = Product.create({:name => "#{product_name}", :cost => "#{product_price}"})
+def add_product(product_name, product_price, category)
+  add_product = Product.create({:name => "#{product_name}", :cost => "#{product_price}", :category => "#{product_price}"})
 end
 
 def add_cashier(cashier_name, cashier_login)
   add_cashier = Cashier.create({:name => "#{cashier_name}", :login => "#{cashier_login}"})
 end
-
-
-
 main_menu
 
 # 6) Customer >> return_products_from_previous_transaction(products)
